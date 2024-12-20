@@ -1,14 +1,17 @@
-#physics/classical-physics/mechanics 
-
-It is time, we have dealt with linear air resistance for a while now, and we've even developed some pretty good equations to describe an object's range and trajectory. However, working in mechanics we are not just concerned with extremely small or slow objects, we are oftentimes interested in the movement of large objects that are subject to much more air resistance. Before, we described linear air resistance to be $\vec{f} = -b \vec{v}$, but now it is $\vec{f} = -cv^{2}\hat{v}$, where $\hat{v}$ is our unit vector for the velocity $v$. Like before for a projectile there are only really two forces, hence by Newton's second law we have $$
-m \dot{v} = m\vec{g} - \vec{f}
-$$and just like before, we are going to separate this into two equations and solve for both. But to briefly point this out, this is a *nonlinear differential equation* and unlike our nice linear drag, this is going to be a bit rougher. Inevitably, we will find that we can only solve these equations numerically and not analytically, this is another blow to our egos. However, first thing first, vertical and horizontal quadratic drag.
+It is time, we have dealt with linear air resistance for a while now, and we've even developed some pretty good equations to describe an object's range and trajectory. However, working in mechanics we are not just concerned with extremely small or slow objects, we are oftentimes interested in the movement of large objects that are subject to much more air resistance. Before, we described linear air resistance to be\
+$\vec{f}=-b\vec{v}$\
+but now it is\
+$\vec{f}=-cv^{2}\hat{v}$\
+where $\hat{v}$ is our unit vector for the velocity $v$. Like before for a projectile there are only really two forces, hence by Newton's second law we have 
+$$m\dot{v}=m\vec{g}-\vec{f}$$ 
+and just like before, we are going to separate this into two equations and solve for both. But to briefly point this out, this is a *nonlinear differential equation* and unlike our nice linear drag, this is going to be a bit rougher. Inevitably, we will find that we can only solve these equations numerically and not analytically, this is another blow to our egos. However, first thing first, vertical and horizontal quadratic drag.
 
 # Horizontal Drag with Quadratic Drag
 
-Like what we did for linear air resistance, we shall begin by having an object move horizontally and being subject to quadratic drag. For a visual representation, think of a cyclist coasting to a stop of a flat road, neglecting all other forces beyond just the air resistance. Thus, we can describe our forces as $$
-m \dot{v}_{x} = -cv^{2}
-$$or $m \frac{dv}{dt} = -cv^{2}$. We will solve this via the separation of variables technique, where if you are a mathematician, avert your eyes. $$
+Like what we did for linear air resistance, we shall begin by having an object move horizontally and being subject to quadratic drag. For a visual representation, think of a cyclist coasting to a stop of a flat road, neglecting all other forces beyond just the air resistance. Thus, we can describe our forces as 
+$$m\dot{v}_{x} = -cv^{2}$$
+or $m \frac{dv}{dt} = -cv^{2}$. We will solve this via the separation of variables technique, where if you are a mathematician, avert your eyes. 
+$$
 \begin{array}
  \\
 \frac{dv}{v^{2}} = -cm\;dt \\
@@ -16,7 +19,8 @@ $$or $m \frac{dv}{dt} = -cv^{2}$. We will solve this via the separation of varia
 \implies m\left( \frac{1}{v_{0}} - \frac{1}{v} \right) = -ct \\
 \implies v(t) = \frac{v_{0}}{1 + \frac{cv_{0}t}{m}} = \frac{v_{0}}{1+\frac{t}{\tau}} 
 \end{array}
-$$where $\tau = \frac{m}{cv_{0}}$. Do note that this is different than our previous definition for $\tau$. Now with a quick integration and a bit of luck we can derive $$
+$$
+where $\tau = \frac{m}{cv_{0}}$. Do note that this is different than our previous definition for $\tau$. Now with a quick integration and a bit of luck we can derive $$
 x(t) = v_{0}\tau \ln \left( 1 + \frac{t}{\tau} \right) 
 $$(note how our initial $x$-position is $0$). Awesome! This was not too hold to solve, but there are a few things we must note that there are some differences with our linear drag, and analysis of this equation may lead to some new insights. We see that our velocity does not decrease exponentially, rather it moves closer to a fraction. We can also see that we cannot stop, or rather, that it seems that as $t \to \infty$, while our velocity decreases we do not find $v \to 0$, this seems strange. However, we are forgetting the humble linear air resistance, which shall begin to dominate in this strange scenario, and with that we are able to reach $0$, fixing this issue of our derivation. 
 
